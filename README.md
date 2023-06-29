@@ -41,14 +41,14 @@ Store this key in a `.env` file at the root of this repo, (Same level as the pac
 `.env`
 
 ```
-REACT_APP_RAWG_KEY=1A2B3C4D5E6F7G8H9I
+VITE_RAWG_KEY=1A2B3C4D5E6F7G8H9I
 ```
 
 Be sure and add your `.env` file to your `.gitignore` simply by typing ".env" on line 3 in the `.gitignore` file!
 
-Restart your React dev server with `npm run dev` and you can now utilize the key like in the following example: `process.env.VITE_APP_RAWG_KEY`
+Restart your React dev server with `npm run dev` and you can now utilize the key like in the following example: `import.meta.env.VITE_RAWG_KEY`
 
-Note: You can name your key *anything you want* as long as it starts with `VITE_APP` and is in **SCREAMING_SNAKE_CASE** without any spaces.
+Note: You can name your key *anything you want* as long as it starts with `VITE` and is in **SCREAMING_SNAKE_CASE** without any spaces.
 
 ### App Architecture
 
