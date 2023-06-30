@@ -23,7 +23,8 @@ a {
 header {
   background-color: #212121;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  text-align: center;
   align-items: center;
   height: 3em;
 }

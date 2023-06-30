@@ -12,11 +12,14 @@ const Home = () => {
 
   const getSearchResults = async (e) => {
     e.preventDefault()
+    // Step 2
   }
 
   const handleChange = (event) => {
+    // Step 1
 
   }
+
 
   return (
     <div>

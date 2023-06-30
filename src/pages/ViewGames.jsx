@@ -10,7 +10,7 @@ const ViewGames = (props) => {
 
   return (
     <div className="container-grid">
-
+      <p>hey hey heeeeyyyy</p>
     </div>
   )
 }
