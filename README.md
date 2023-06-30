@@ -225,7 +225,7 @@ GameDetails will display specific information for an individual game.
 
 ViewGames will display a page with up to 40 games.
 
-- ViewGames requires axios, GameCard, and this URL: `https://api.rawg.io/api/games?page_size=40&genres=${genreId}`
+- ViewGames requires axios, GameCard, and this URL: `https://api.rawg.io/api/games?page_size=40&genres=${genreId}?key=${API_KEY}`
 - Its Route path is: `/view/games/:genreId`
 
 ## Submission
