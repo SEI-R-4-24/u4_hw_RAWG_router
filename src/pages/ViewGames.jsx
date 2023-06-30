@@ -7,18 +7,18 @@ import GameCard from '../components/GameCard'
 const ViewGames = (props) => {
   const [games, setGames] = useState([])
 
-  let { id } = useParams()
+  let { genre_id } = useParams()
 
   const getGamesByGenre = async () => {
     let response = await axios.get(
-      `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&genres=${id}`
+      `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&genres=${genre_id}`
     )
     setGames(response.data.results)
   }
 
   useEffect(() => {
     getGamesByGenre()
-  }, [id])
+  }, [genre_id])
 
   return (
     <div className="container-grid">

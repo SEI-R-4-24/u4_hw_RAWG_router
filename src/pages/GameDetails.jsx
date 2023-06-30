@@ -4,18 +4,18 @@ import { API_KEY } from '../global'
 import axios from 'axios'
 
 const GameDetails = (props) => {
-  let { id } = useParams()
+  let { game_id } = useParams()
   const [gameDetails, setGameDetails] = useState({})
 
   useEffect(() => {
     const getGame = async () => {
       let response = await axios.get(
-        `https://api.rawg.io/api/games/${id}?key=${API_KEY}`
+        `https://api.rawg.io/api/games/${game_id}?key=${API_KEY}`
       )
       setGameDetails(response.data)
     }
     getGame()
-  }, [id])
+  }, [game_id])
 
   return (
     <div className="game-content">
