@@ -152,3 +152,7 @@ button {
 .space {
   justify-content: space-between;
 }
+
+.title {
+  font-size: 35px;
+}
