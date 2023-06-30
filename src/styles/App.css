@@ -23,7 +23,7 @@ a {
 header {
   background-color: #212121;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex;
   align-items: center;
   height: 3em;
 }
@@ -148,7 +148,24 @@ button {
 
 .flex-row {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .space {
   justify-content: space-between;
+}
+
+.flex-col {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about {
+  font-size: x-large;
+  font-weight: 700;
+  padding: 2em;
+  text-align: center;
+  width: 60%
 }
