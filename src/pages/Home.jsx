@@ -1,4 +1,10 @@
-import { useState } from 'react'
+import GenreCard from '../components/GenreCard'
+import { BASE_URL, API_KEY } from '../globals'
+import GameCard from '../components/GameCard'
+import { useEffect, useState } from 'react'
+import Search from '../components/Search'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   const [genres, setGenres] = useState([])
@@ -6,30 +12,64 @@ const Home = () => {
   const [searched, toggleSearched] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
 
-  const getGenres = async () => {
-
-  }
+  useEffect(() => {
+    const getGenres = async () => {
+      const response = await axios.get(`${BASE_URL}/genres?key=${API_KEY}`)
+      setGenres(response.data.results)
+    }
+    getGenres()
+  }, [])
 
   const getSearchResults = async (e) => {
     e.preventDefault()
+    const response = await axios.get(
+      `${BASE_URL}/games?search=${searchQuery}&key=${API_KEY}`
+    )
+    console.log(response)
+    setSearchResults(response.data.results)
+    setSearchQuery('')
+    toggleSearched(true)
   }
 
   const handleChange = (event) => {
-
+    setSearchQuery(event.target.value)
   }
 
   return (
     <div>
       <div className="search">
+        <Search
+          value={searchQuery}
+          onChange={handleChange}
+          onSubmit={getSearchResults}
+        />
         <h2>Search Results</h2>
         <section className="search-results container-grid">
-
+          {searched &&
+            searchResults.map((result) => (
+              <Link to={`/games/details/${result.id}`} key={result.id}>
+                <GameCard
+                  key={result.id}
+                  game={result}
+                  image={result.background_image}
+                  name={result.name}
+                  rating={result.rating}
+                />
+              </Link>
+            ))}
         </section>
       </div>
       <div className="genres">
         <h2>Genres</h2>
         <section className="container-grid">
-
+          {genres.map((genre) => (
+            <GenreCard
+              key={genre.id}
+              genre={genre}
+              image={genre.image_background}
+              name={genre.name}
+            />
+          ))}
         </section>
       </div>
     </div>
