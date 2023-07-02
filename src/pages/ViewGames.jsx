@@ -3,20 +3,25 @@ import axios from 'axios'
 import { BASE_URL, API_KEY } from '../globals'
 
 const ViewGames = (props) => {
-  const [genreId, setGenreId] = useState(null)
-  // const [games, setGames] = useState([])
+  const [genreId, setGenreId] = useState()
 
-  useEffect(() => {
-    const getGamesByGenre = async () => {
-      const response = await axios.get(`${BASE_URL}/genres?api_key=${API_KEY}`)
+  // useEffect(() => {
+  //   const getGamesByGenre = async () => {
+  //     const response = await axios.get(`${BASE_URL}/genres?api_key=${API_KEY}`)
+  //     console.log(response.data.results)
+  //     setGenreId(response.data.results)
+  //   }
+  //   getGamesByGenre()
+  // })
 
-      console.log(response)
-      setGenreId(response)
-    }
-    getGamesByGenre()
-  })
-
-  return <div className="container-grid"></div>
+  return
+  // <div className="container-grid">
+  //   {props.genres.map((genre) => (
+  //     <div className="genres" key={genre.id}>
+  //       <h1>{genre.name}</h1>
+  //     </div>
+  //   ))}
+  // </div>
 }
 
 export default ViewGames
