@@ -91,12 +91,10 @@ button {
 }
 
 .card {
-  max-width: 300px;
-  max-height: 380px;
-  border-radius: 4px;
   background-color: #1b1b1b;
-  cursor: pointer;
-  transition: all 0.2s;
+  max-height: 480px;
+  max-width: 400px;
+  transition: all .2s;
 }
 
 .card:hover {
@@ -115,6 +113,7 @@ button {
 .card .info-wrapper {
   padding: 1em;
 }
+
 .container-grid {
   padding: 2em 0;
   display: grid;
@@ -129,6 +128,9 @@ button {
 .search h2 {
   text-align: center;
 }
+div {
+  display: block;
+}
 
 .game-content .image-container {
   width: 95vw;
@@ -137,25 +139,29 @@ button {
   padding: 1em 0;
 }
 
-.image-container div {
-  margin: auto;
-  width: 90%;
-}
-
-.image-container img {
-  margin: auto;
-  text-align: center;
-  width: 100%;
-}
-
 .details {
   width: 80%;
   margin: auto;
 }
 
-.flex-row {
-  display: flex;
-}
+
 .space {
   justify-content: space-between;
+}
+
+h3 {
+  text-align: center;
+}
+.about {
+  font-size: x-large;
+  font-weight: 700;
+  padding: 2em;
+  text-align: center;
+  width: 60%;
+}
+.flex-col {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
