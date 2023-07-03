@@ -6,7 +6,9 @@ const SearchResultsSection = ({searchResults}) => {
         <h2>Search Results</h2>
         <section className="search-results container-grid">
         {searchResults.map((game) => (
-            <GameCard name={game.name} image={game.background_image}/>
+            <div key={game.id}>
+            <GameCard name={game.name} image={game.background_image} rating={game.rating}/>
+            </div>
         ))}
         </section>
         </div>

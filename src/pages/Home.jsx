@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../components/Globals'
 import { Link } from 'react-router-dom'
-import GameCard from '../components/GameCard'
 import GenreCard from '../components/GenreCard'
 import Search from '../components/Search'
 import SearchResultsSection from '../components/SearchResultsSection'
@@ -34,7 +33,6 @@ const Home = () => {
   }
 
   const onClick = (event) => {
-    alert(event.target)
 
   }
 
@@ -59,7 +57,9 @@ const Home = () => {
         <section className="container-grid">
           {genres.map((genre)=>(
             <div key={genre.id}>
-              <GenreCard image={genre.image_background} name={genre.name} gamesCount={genre.games_count} onClick={onClick} />
+              <Link to={`/view/games/${genre.id}`}>
+                <GenreCard image={genre.image_background} name={genre.name} gamesCount={genre.games_count} onClick={onClick} />
+              </Link>
             </div>
         ))}
         </section>

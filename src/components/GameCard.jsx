@@ -1,4 +1,4 @@
-const GameCard = ({name, image}) => {
+const GameCard = ({name, image, rating}) => {
   
   return (
     <div className="card game-card">
@@ -7,6 +7,7 @@ const GameCard = ({name, image}) => {
       </div>
       <div className="info-wrapper flex-col">
         <h3>{name}</h3>
+        <p>{rating}</p>
       </div>
     </div>
   )
