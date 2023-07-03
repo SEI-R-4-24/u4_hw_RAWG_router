@@ -1,14 +1,14 @@
-const Search = (props) => {
+const Search = ({handleChange,searchQuery,getSearchResults}) => {
 
   return (
     <form>
       <input
         type="text"
-        onChange={props.handleChange}
-        value={props.searchQuery}
+        onChange={handleChange}
+        value={searchQuery}
         placeholder="Search Games"
       />
-      <button onClick={props.getSearchResults}>Search</button>
+      <button onClick={getSearchResults}>Search</button>
     </form>
   )
 }
