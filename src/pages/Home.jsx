@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import GameCard from '../components/GameCard'
 import GenreCard from '../components/GenreCard'
 import Search from '../components/Search'
+import SearchResultsSection from '../components/SearchResultsSection'
 
 const Home = () => {
   const [genres, setGenres] = useState([])
@@ -22,33 +23,45 @@ const Home = () => {
 
   const getSearchResults = async (e) => {
     e.preventDefault()
-
+    const searchResponse = await axios.get(`${BASE_URL}games?key=${import.meta.env.VITE_RAWG_KEY}&search=${searchQuery}`)
+    setSearchResults(searchResponse.data.results)
+    toggleSearched(true)
+    setSearchQuery('')
   }
 
   const handleChange = (event) => {
+    setSearchQuery(event.target.value)
+  }
+
+  const onClick = (event) => {
+    alert(event.target)
 
   }
 
-  const genreOnClick = (event) => {
-    alert(event.target)
+  let searchResultsSection
 
+  if (searched) {
+    if (searchResults.length === 0) {
+    searchResultsSection = <div className="search-message"><h2>No games matching search criteria found.</h2></div>
+    } else {
+    searchResultsSection = <SearchResultsSection searchResults={searchResults} />
+    }
   }
 
   return (
     <div>
       <div className="search">
-        <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        <h2>Search Results</h2>
-        <section className="search-results container-grid">
-
-        </section>
+        <Search onSubmit={getSearchResults} onChange={handleChange} value={searchQuery} />
+        {searchResultsSection}
       </div>
       <div className="genres">
         <h2>Genres</h2>
         <section className="container-grid">
-          {genres.map((genre, idx)=>(
-            <GenreCard cardId={idx} image={genre.image_background} name={genre.name} gamesCount={genre.games_count} />
-         ))}
+          {genres.map((genre)=>(
+            <div key={genre.id}>
+              <GenreCard image={genre.image_background} name={genre.name} gamesCount={genre.games_count} onClick={onClick} />
+            </div>
+        ))}
         </section>
       </div>
     </div>

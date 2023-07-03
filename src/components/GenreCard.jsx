@@ -1,7 +1,7 @@
-const GenreCard = ({cardId, image, name, gamesCount}) => {
+const GenreCard = ({cardId, image, name, gamesCount, onClick}) => {
 
   return (
-    <div className="card" key={cardId}>
+    <div className="card" onClick={onClick}>
       <div className="img-wrapper">
         <img src={image} />
       </div>

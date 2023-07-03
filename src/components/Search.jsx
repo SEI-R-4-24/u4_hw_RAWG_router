@@ -1,15 +1,13 @@
-import {useState, useEffect} from 'react'
-
-const Search = ({searchQuery, setSearchQuery}) => {
+const Search = ({onSubmit, onChange, value}) => {
 
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <input
         type="text"
         name="search"
-        value={searchQuery}
+        value={value}
         placeholder="Search Games"
-        onChange={(event) => setSearchQuery(event.target.value)}
+        onChange={onChange}
       ></input>
       <button type="submit">Search</button>
     </form>

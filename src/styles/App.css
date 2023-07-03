@@ -124,6 +124,11 @@ button {
   text-align: center;
 }
 
+.search-message{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 .game-content .image-container {
   width: 95vw;
   margin: auto;
