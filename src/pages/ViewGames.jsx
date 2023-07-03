@@ -14,14 +14,13 @@ const ViewGames = (props) => {
       <h4 className="games-h4">View All Games</h4>
       <div className="container-grid">
         {
-          games.map((game) => {
-            <div className="game-card" key={game.id}>
-              <Link to={`${game.id}`}>
-                <img src={game.background_image} alt={game.name} />
-                <h5>{game.name}</h5>
-              </Link>
+          games.map((game) => (
+            <div key={game.id} className="card">
+              <img src="" alt="poster" />
+              <h4>{game.title}</h4>
+              <button onClick={() => getGamesByGenre(game.id)}>GAME DETAILS</button>
             </div>
-          })
+          ))
         }
       </div>
     </div>
