@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Search from '../components/Search'
 import GameCard from '../components/GameCard'
@@ -13,21 +13,24 @@ const Home = () => {
   const [searched, toggleSearched] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
 
-  const getGenres = async (e) => {
-    e.preventDefault()
+  useEffect(() => {
+    getGenres()
+  }, []
+  )
+
+  const getGenres = async () => {
     let genreResults = await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`)
+    console.log(genreResults.data.results)
     setGenres(genreResults.data.results) 
   }
 
-  const getSearchResults = async (e) => {
-    e.preventDefault()
+  const getSearchResults = async () => {
     let results = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&search=${searchQuery}`)
     console.log(results)
     setSearchResults(results.data.results)
   }
 
   const handleChange = (e) => {
-    // e.preventDefault()
     setSearchQuery(e.target.value)
   }
 
@@ -60,9 +63,8 @@ const Home = () => {
             {
               genres.map((genre) => {
                   return (<GenreCard 
-                    onClick={getGenres}
                     genre={genre}
-                    
+
                   />)
               })
             }

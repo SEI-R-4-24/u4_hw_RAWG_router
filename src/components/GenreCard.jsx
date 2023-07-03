@@ -1,16 +1,15 @@
 import { Link } from 'react-router-dom'
-import axios from 'axios'
 
-const GenreCard = (props) => {
+const GenreCard = ({genre}) => {
 
   return (
-    <div className="card" onClick={props.onClick}>
+    <div className="card" >
       <div className="img-wrapper">
         <img className="game-image" src={genre.image_background} alt={genre.name} />
       </div>
       <div className="info-wrapper flex-col">
-        <h3>{props.name}</h3>
-        <p>{props.gamesCount}</p>
+        <h3>{genre.name}</h3>
+        <p>GAMES: {genre.games_count}</p>
       </div>
       <Link to="/viewgames">
         <button className="backButton">BACK</button>
