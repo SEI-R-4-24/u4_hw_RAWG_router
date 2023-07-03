@@ -1,14 +1,14 @@
 const Search = ({handleChange,searchQuery,getSearchResults}) => {
 
   return (
-    <form>
+    <form onSubmit={getSearchResults}>
       <input
         type="text"
         onChange={handleChange}
         value={searchQuery}
         placeholder="Search Games"
       />
-      <button onClick={getSearchResults}>Search</button>
+      <button type="submit">Search</button>
     </form>
   )
 }
