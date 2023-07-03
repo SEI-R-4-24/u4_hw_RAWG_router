@@ -1,10 +1,16 @@
 import { useEffect, useState } from 'react'
 
+const API_KEY = import.meta.env.VITE_RAWG_KEY
+
 const GameDetails = (props) => {
   const [gameDetails, setGameDetails] = useState({})
 
   useEffect(() => {
-    
+      const getGameDetails = async () => {
+        const response = await axios.get(`https://api.rawg.io/api/games/${gameId}?key=${API_KEY}`)
+        setGameDetails(response.data)
+      }
+      getGameDetails()
   }, [gameId])
 
   return (

@@ -1,19 +1,18 @@
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { BASE_URL } from '../globals'
 
-const GameCard = ({ games }) => {
-
+const GameCard = ({ game }) => {
+console.log(game)
   return game ? (
-    <div className="card game-card" onClick={games.onClick}>
+    <div className="card game-card" onClick="">
       <div className="img-wrapper">
-        <img src={games.image} alt={games.name} />
+        <img src={game.background_image} alt={game.name} />
       </div>
       <div className="info-wrapper flex-col">
-        <h3>{games.name}</h3>
+        <h3>{game.name}</h3>
       </div>
       <Link to="/viewgames">
-        <button onClick={() => handleChange(game.id)} className="backButton">BACK</button>
+        <button className="backButton">BACK</button>
       </Link>
     </div>
   ) : null
