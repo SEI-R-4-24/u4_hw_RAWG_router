@@ -14,19 +14,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+h1{
+  text-align: center;
+  margin-bottom: 60px;
+}
+p{
+  font-size: 23px;
+  font-weight: bold;
+  padding: 0 300px 0 300px;
+}
 a {
   color: #eee;
   text-decoration: none;
+}
+a:hover{
+  color:antiquewhite;
+  text-decoration: underline;
+}
+button:hover{
+  background-color: antiquewhite;
 }
 
 header {
   background-color: #212121;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   height: 3em;
 }
+
 
 header nav a {
   margin: 0 1em;
