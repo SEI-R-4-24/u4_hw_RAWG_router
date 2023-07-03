@@ -1,8 +1,14 @@
-const Search = () => {
-
+const Search = (props) => {
   return (
-    <form>
-
+    <form onSubmit={props.getSearchResults}>
+      <input
+        type="text"
+        name="search"
+        value={props.inputVal}
+        placeholder="Search Games"
+        onChange={props.handleChange}
+      />
+      <button type="submit">Search</button>
     </form>
   )
 }
