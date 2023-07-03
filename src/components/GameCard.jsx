@@ -7,7 +7,7 @@ const GameCard = ({name, image, rating}) => {
       </div>
       <div className="info-wrapper flex-col">
         <h3>{name}</h3>
-        <p>{rating}</p>
+        <p><b>Rating:</b> {rating}</p>
       </div>
     </div>
   )

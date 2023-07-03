@@ -23,13 +23,21 @@ a {
 header {
   background-color: #212121;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: flex-start;
   height: 3em;
 }
 
 header nav a {
   margin: 0 1em;
+}
+
+header nav a.active {
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+nav {
+  margin-top: 1em;
 }
 
 input {
@@ -136,20 +144,26 @@ button {
   padding: 1em 0;
 }
 
+.game-content > h3 {
+  text-align: center;
+}
+
 .image-container div {
   margin: auto;
-  width: 90%;
+  width: 80%;
 }
 
 .image-container img {
   margin: auto;
   text-align: center;
   width: 100%;
+  border-radius: 10px;
 }
 
 .details {
   width: 80%;
   margin: auto;
+  text-align: center
 }
 
 .flex-row {

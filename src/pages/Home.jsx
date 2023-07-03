@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { BASE_URL } from '../components/Globals'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import GenreCard from '../components/GenreCard'
+import { BASE_URL } from '../components/Globals'
 import Search from '../components/Search'
 import SearchResultsSection from '../components/SearchResultsSection'
+import GenreCard from '../components/GenreCard'
 
 const Home = () => {
   const [genres, setGenres] = useState([])
@@ -14,15 +14,15 @@ const Home = () => {
 
   useEffect(() => {
   const getGenres = async () => {
-    const genresResponse = await axios.get(`${BASE_URL}genres?key=${import.meta.env.VITE_RAWG_KEY}`)
+    const genresResponse = await axios.get(`${BASE_URL}/genres?key=${import.meta.env.VITE_RAWG_KEY}`)
     setGenres(genresResponse.data.results)
   }
   getGenres()
-}, [])
+  }, [])
 
   const getSearchResults = async (e) => {
     e.preventDefault()
-    const searchResponse = await axios.get(`${BASE_URL}games?key=${import.meta.env.VITE_RAWG_KEY}&search=${searchQuery}`)
+    const searchResponse = await axios.get(`${BASE_URL}/games?key=${import.meta.env.VITE_RAWG_KEY}&search=${searchQuery}`)
     setSearchResults(searchResponse.data.results)
     toggleSearched(true)
     setSearchQuery('')

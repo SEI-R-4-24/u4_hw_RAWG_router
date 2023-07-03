@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom'
 import GameCard from './GameCard'
+
 const SearchResultsSection = ({searchResults}) => {
 
     return(
@@ -7,7 +9,9 @@ const SearchResultsSection = ({searchResults}) => {
         <section className="search-results container-grid">
         {searchResults.map((game) => (
             <div key={game.id}>
+            <Link to={`/games/details/${game.id}`}>
             <GameCard name={game.name} image={game.background_image} rating={game.rating}/>
+            </Link>
             </div>
         ))}
         </section>

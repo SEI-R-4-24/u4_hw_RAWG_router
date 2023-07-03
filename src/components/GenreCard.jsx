@@ -1,4 +1,4 @@
-const GenreCard = ({cardId, image, name, gamesCount, onClick}) => {
+const GenreCard = ({image, name, gamesCount, onClick}) => {
 
   return (
     <div className="card" onClick={onClick}>
