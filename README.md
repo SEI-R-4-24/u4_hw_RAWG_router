@@ -22,7 +22,6 @@ The endpoints (URL strings) we will be using with this API have been provided be
 [GET] Search `https://api.rawg.io/api/games?key=${API_KEY}&search=${searchQuery}`
 [GET] Genres `https://api.rawg.io/api/genres?key=${API_KEY}`
 [GET] Game Details `https://api.rawg.io/api/games/${gameId}?key=${API_KEY}`
-[GET] DLC `https://api.rawg.io/api/games/${gameId}/additions?key=${API_KEY}` (Bonus)
 ```
 
 ## Getting Started
@@ -226,7 +225,7 @@ GameDetails will display specific information for an individual game.
 
 ViewGames will display a page with up to 40 games.
 
-- ViewGames requires axios, GameCard, and this URL: `https://api.rawg.io/api/games?page_size=40&genres=${genreId}`
+- ViewGames requires axios, GameCard, and this URL: `https://api.rawg.io/api/games?page_size=40&genres=${genreId}?key=${API_KEY}`
 - Its Route path is: `/view/games/:genreId`
 
 ## Submission
