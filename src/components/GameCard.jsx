@@ -4,7 +4,7 @@ import axios from 'axios'
 const GameCard = ({ game }) => {
 console.log(game)
   return game ? (
-    <div className="card game-card" onClick="">
+    <div className="card game-card">
       <div className="img-wrapper">
         <img src={game.background_image} alt={game.name} />
       </div>

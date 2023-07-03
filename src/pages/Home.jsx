@@ -2,6 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import Search from '../components/Search'
 import GameCard from '../components/GameCard'
+import GenreCard from '../components/GenreCard'
 
 
 const API_KEY = import.meta.env.VITE_RAWG_KEY
@@ -12,8 +13,10 @@ const Home = () => {
   const [searched, toggleSearched] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
 
-  const getGenres = async () => {
-
+  const getGenres = async (e) => {
+    e.preventDefault()
+    let genreResults = await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`)
+    setGenres(genreResults.data.results) 
   }
 
   const getSearchResults = async (e) => {
@@ -53,6 +56,17 @@ const Home = () => {
       <div className="genres">
         <h2>Genres</h2>
         <section className="container-grid">
+        <div>
+            {
+              genres.map((genre) => {
+                  return (<GenreCard 
+                    onClick={getGenres}
+                    genre={genre}
+                    
+                  />)
+              })
+            }
+          </div>
 
         </section>
       </div>
