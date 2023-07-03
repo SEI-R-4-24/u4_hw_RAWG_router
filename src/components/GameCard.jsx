@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 
-const GameCard = () => {
+const GameCard = ({ games }) => {
 
   return game ? (
     <div className="card game-card" onClick={games.onClick}>
