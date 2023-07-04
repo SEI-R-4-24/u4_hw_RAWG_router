@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   color: #eee;
-  background-color: #424242;
+  background-color: #1F3B4D;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -23,13 +23,16 @@ a {
 header {
   background-color: #212121;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   height: 3em;
 }
 
 header nav a {
   margin: 0 1em;
+}
+
+nav {
+  float:right;
 }
 
 input {
@@ -39,8 +42,7 @@ input {
   padding: 0.5em 0.2em;
   width: auto;
   transition: all 0.2s;
-  font-size: 1.3rem;
-  color: #eee;
+  font-size: 1.3rm;
 }
 
 input:active,
@@ -67,11 +69,12 @@ main {
 form {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: right;
 }
 
 input {
-  width: 80%;
+  width: 50%;
+  height: 20%;
   margin: 0 1em;
 }
 
@@ -81,6 +84,7 @@ button {
   border-radius: 4px;
   font-size: 1.1rem;
   cursor: pointer;
+  background-color: transparent;
 }
 
 .card {
@@ -103,15 +107,25 @@ button {
 .card img {
   width: 100%;
   height: 200px;
+  border-radius: px;
 }
 
+.card img:hover {
+  box-shadow: -1px 2px 14px -4px rgba(217,217,217,0.75);
+-webkit-box-shadow: -1px 2px 14px -4px rgba(217,217,217,0.75);
+-moz-box-shadow: -1px 2px 14px -4px rgba(217,217,217,0.75);
+}
 .card .info-wrapper {
-  padding: 1em;
+  display:flex;
+  justify-content: center;
+  height: fit-content;
+  text-align: center;
+  color: white;
 }
 .container-grid {
   padding: 2em 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 320px);
+  grid-template-columns: repeat(3, 320px);
   grid-gap: 1em;
   justify-content: center;
 }
@@ -124,6 +138,9 @@ button {
 }
 
 .game-content .image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 95vw;
   margin: auto;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -146,9 +163,49 @@ button {
   margin: auto;
 }
 
+.details-img {
+  width: 200px;
+  height: auto;
+  margin-right: 20px;
+}
+
 .flex-row {
   display: flex;
 }
 .space {
   justify-content: space-between;
 }
+
+.nav-header-left {
+  float: left;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.material-symbols-outlined {
+  color: white;
+}
+
+.search-button {
+  width: 15%;
+  height: 20%;
+}
+
+h3 {
+  font-size: 15px;
+  margin: 4px 0px;
+}
+
+.header-img {
+  width: 32px;
+  filter: brightness(0) invert(1);
+  margin-left: 20px;
+
+}
+
+.flex-row-space {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
