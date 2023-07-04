@@ -1,1 +1,1 @@
-API_KEY = import.meta.env.VITE_RAWG_KEY
+export const API_KEY = import.meta.env.VITE_RAWG_KEY
