@@ -8,9 +8,7 @@ const Search = (props) => {
         placeholder="Search Games"
         onChange={props.onChange}
       ></input>
-      <button type="submit" onSubmit={props.onSubmit}>
-        Submit
-      </button>
+      <button type="submit">Submit</button>
     </form>
   )
 }
