@@ -83,6 +83,10 @@ button {
   cursor: pointer;
 }
 
+h2 {
+  text-align: center;
+}
+
 .card {
   max-width: 300px;
   max-height: 380px;
@@ -117,6 +121,10 @@ button {
 }
 .genres {
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
 }
 .genres h2,
 .search h2 {
