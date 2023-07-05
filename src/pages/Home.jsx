@@ -3,7 +3,8 @@ import Search from '../components/Search'
 import axios from 'axios'
 import GameCard from '../components/GameCard'
 import GenreCard from '../components/GenreCard'
-import { API_KEY } from '../globals'
+import { API_KEY, BASE_URL } from '../globals'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   const [genres, setGenres] = useState([])
@@ -12,40 +13,64 @@ const Home = () => {
   const [searchQuery, setSearchQuery] = useState('')
 
   const getGenres = async () => {
-    const response = await axios.get(
-      `https://api.rawg.io/api/genres?key=${API_KEY}`
-    )
+    const response = await axios.get(`${BASE_URL}/genres?key=${API_KEY}`)
     setGenres(response.data.results)
   }
 
-  const getSearchResults = async (e) => {
-    e.preventDefault()
+  const getSearchResults = async (evt) => {
+    evt.preventDefault()
+    const response = await axios.get(
+      `${BASE_URL}/games?key=${API_KEY}&search=${searchQuery}`
+    )
+    setSearchResults(response.data.results)
+    toggleSearched(true)
   }
 
-  const handleChange = (event) => {}
+  const handleChange = (evt) => {
+    setSearchQuery(evt.target.value)
+  }
 
   useEffect(() => {
+    console.log(searchResults)
     getGenres()
   }, [])
 
   return (
     <div>
       <div className="search">
+        <Search
+          value={searchQuery}
+          onChange={handleChange}
+          onSubmit={getSearchResults}
+        />
         <h2>Search Results</h2>
-        <section className="search-results container-grid"></section>
+        <section className="search-results container-grid">
+          {searched &&
+            searchResults.map((result) => (
+              <Link to={`games/details/${result.id}`} key={result.id}>
+                <GameCard
+                  key={result.id}
+                  game={result}
+                  name={result.name}
+                  image={result.background_image}
+                  rating={result.rating}
+                />
+              </Link>
+            ))}
+        </section>
       </div>
       <div className="genres">
         <h2>Genres</h2>
         <section className="container-grid">
           {genres.map((genre) => (
-            <div key={genre.id} className="card">
-              <div className="img-wrapper">
-                <img src={genre.image_background} alt={genre.name} />
-              </div>
-              <div className="info-wrapper flex-row">
-                <h3>{genre.name}</h3>
-              </div>
-            </div>
+            <Link to={`view/games/${genre.id}`} key={genre.id}>
+              <GenreCard
+                key={genre.id}
+                name={genre.name}
+                image={genre.image_background}
+                gamesCount={genre.games_count}
+              />
+            </Link>
           ))}
         </section>
       </div>
