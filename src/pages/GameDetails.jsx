@@ -35,7 +35,7 @@ const GameDetails = (props) => {
         </div>
         <div>
           <h3>Description</h3>
-          <p>{gameDetails.description}</p>
+          <p>{gameDetails.description_raw}</p>
         </div>
       </section>
     </div>
