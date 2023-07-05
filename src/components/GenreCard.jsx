@@ -1,14 +1,18 @@
 const GenreCard = (props) => {
   return (
-    <div className="card" onClick={() => props.onClick}>
-      <div className="img-wrapper">
-        <img src={props.games.image} />
-      </div>
-      <div className="info-wrapper flex-col">
-        <h3>{props.games.name}</h3>
-        <p>{props.gamesCount}</p>
-      </div>
-    </div>
+    <section className="container-grid">
+      {props.genres.map((genre) => (
+        <div className="card" key={genre.id}>
+          <div className="img-wrapper">
+            <img src={genre.image_background} alt="Genre" />
+            <div className="info-wrapper flex-row">
+              <h3>{genre.name}</h3>
+              <p>{genre.game_count}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </section>
   )
 }
 

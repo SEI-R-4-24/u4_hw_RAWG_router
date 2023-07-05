@@ -1,9 +1,7 @@
-import { useNavigate } from 'react-router-dom'
-
 const Search = (props) => {
   return (
     <div>
-      <form onSubmit={props.handleSubmit}>
+      <form onSubmit={props.handleChange}>
         <input
           type="text"
           name="search"

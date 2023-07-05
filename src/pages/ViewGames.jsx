@@ -1,27 +1,12 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-import { BASE_URL, API_KEY } from '../globals'
+import { useState } from 'react'
 
 const ViewGames = (props) => {
   const [genreId, setGenreId] = useState()
+  const [games, setGames] = useState([])
 
-  // useEffect(() => {
-  //   const getGamesByGenre = async () => {
-  //     const response = await axios.get(`${BASE_URL}/genres?api_key=${API_KEY}`)
-  //     console.log(response.data.results)
-  //     setGenreId(response.data.results)
-  //   }
-  //   getGamesByGenre()
-  // })
+  const getGamesByGenre = async () => {}
 
-  return
-  // <div className="container-grid">
-  //   {props.genres.map((genre) => (
-  //     <div className="genres" key={genre.id}>
-  //       <h1>{genre.name}</h1>
-  //     </div>
-  //   ))}
-  // </div>
+  return <div className="container-grid"></div>
 }
 
 export default ViewGames

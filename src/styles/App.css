@@ -21,8 +21,7 @@ a {
 }
 
 header {
- 
-    justify-content: space-between;
+  justify-content: space-between;
     align-items: center;
     color: white;
     background-color: #1069c1;
@@ -89,12 +88,16 @@ button {
   font-size: 1.1rem;
   cursor: pointer;
 }
-
+.card, button {
+  border-radius: 4px;
+  cursor: pointer;
+}
 .card {
   background-color: #1b1b1b;
   max-height: 480px;
   max-width: 400px;
   transition: all .2s;
+
 }
 
 .card:hover {
@@ -124,10 +127,11 @@ button {
 .genres {
   width: 100%;
 }
-.genres h2,
-.search h2 {
+
+.genres, .search, h1, h2 {
   text-align: center;
 }
+
 div {
   display: block;
 }
@@ -150,7 +154,13 @@ div {
 }
 
 h3 {
-  text-align: center;
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
 }
 .about {
   font-size: x-large;

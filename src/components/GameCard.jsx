@@ -1,14 +1,17 @@
-const GameCard = () => {
-  
+const GameCard = (props) => {
   return (
-    <div className="card game-card">
-      <div className="img-wrapper">
+    <section className="search-results container-grid">
+      {props.searchResults.map((game) => (
+        <div className="card game-card" key={game.id}>
+          <div className="img-wrapper">
+            <img src={game.background_image} alt="Game" />
+            <h3 onClick={() => props.toggleSearch(game.id)}>{game.name} </h3>
 
-      </div>
-      <div className="info-wrapper flex-col">
-        
-      </div>
-    </div>
+            <h1>{game.rating}</h1>
+          </div>
+        </div>
+      ))}
+    </section>
   )
 }
 
