@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { API_KEY, BASE_URL } from '../globals'
 
-const GameDetails = (props) => {
+const GameDetails = () => {
   const [gameDetails, setGameDetails] = useState({})
 
   let { gameId } = useParams()

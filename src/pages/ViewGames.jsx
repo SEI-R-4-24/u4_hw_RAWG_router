@@ -3,8 +3,9 @@ import axios from 'axios'
 import GameCard from '../components/GameCard'
 import { useParams } from 'react-router-dom'
 import { API_KEY, BASE_URL } from '../globals'
+import { Link } from 'react-router-dom'
 
-const ViewGames = (props) => {
+const ViewGames = () => {
   const [games, setGames] = useState([])
   let { genreId } = useParams()
 
@@ -19,16 +20,19 @@ const ViewGames = (props) => {
     getGamesByGenre()
   }, [genreId])
 
+  // In the future. Watch for relative link paths
   return (
     <div className="container-grid">
       {games.map((game) => (
-        <GameCard
-          key={game.id}
-          game={game}
-          name={game.name}
-          image={game.background_image}
-          rating={game.rating}
-        />
+        <Link to={`../games/details/${game.id}`} key={game.id}>
+          <GameCard
+            key={game.id}
+            game={game}
+            name={game.name}
+            image={game.background_image}
+            rating={game.rating}
+          />
+        </Link>
       ))}
     </div>
   )

@@ -31,7 +31,6 @@ const Home = () => {
   }
 
   useEffect(() => {
-    console.log(searchResults)
     getGenres()
   }, [])
 
