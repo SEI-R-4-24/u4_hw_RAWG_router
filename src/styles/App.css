@@ -124,6 +124,10 @@ button {
 }
 
 .game-content .image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   width: 95vw;
   margin: auto;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
