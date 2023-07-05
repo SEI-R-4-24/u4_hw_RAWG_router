@@ -44,13 +44,13 @@ const Home = () => {
           onChange={handleChange}
           onSubmit={getSearchResults}
         />
-        <h2>Search Results</h2>
+        {searched && <h2>Search Results</h2>}
         <section className="search-results container-grid">
           {searched &&
             searchResults.map((searchResult) => (
               <GameCard
                 key={searchResult.id}
-                onClick={getGenres}
+                gameId={searchResult.id}
                 image={searchResult.background_image}
                 name={searchResult.name}
                 rating={searchResult.rating}
@@ -64,10 +64,10 @@ const Home = () => {
           {genres.map((genre) => (
             <GenreCard
               key={genre.id}
+              genreId={genre.id}
               name={genre.name}
               image={genre.image_background}
               gamesCount={genre.games_count}
-              onClick={getGenres}
             />
           ))}
         </section>
