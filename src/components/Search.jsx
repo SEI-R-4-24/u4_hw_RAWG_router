@@ -3,15 +3,15 @@ const Search = (props) => {
 
   return (
     <form onSubmit={props.onSubmit}>
+      {/* Need to make sure it isn't <input></input>. Needs to be <input [Insertstuffhere] /> */}
       <input
         type="text"
         name="search"
         value={props.value}
         placeholder="Search Games"
         onChange={props.onChange}
-      >
-        <button type="submit">Search</button>
-      </input>
+      />
+      <button type="submit">Search</button>
     </form>
   )
 }
