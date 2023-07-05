@@ -1,4 +1,4 @@
-const Search = () => {
+const Search = (props) => {
   return (
     <form onSubmit={props.onSubmit}>
       <input

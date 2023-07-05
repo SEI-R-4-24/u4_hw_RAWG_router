@@ -2,7 +2,7 @@ import "./styles/App.css"
 import { Route, Routes } from "react-router-dom"
 import Header from "./components/Header"
 import Home from "./pages/Home"
-import GenreCard from "./components/GenreCard"
+import GameDetails from "./pages/GameDetails"
 import GameCard from "./components/GameCard"
 import About from "./pages/About"
 
@@ -13,8 +13,8 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/about" element={<About />} />
-          <Route path="gamecard" element={<GameCard games={games} />} />
-          <Route path="genre" element={<GenreCard />} />
+          <Route path="games" element={<GameCard />} />
+          <Route path="/games/details/:gameId" element={<GameDetails />} />
           <Route path="/" element={<Home />} />
         </Routes>
       </main>
