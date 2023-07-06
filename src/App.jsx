@@ -11,16 +11,16 @@ const App = () => {
   return (
     <div>
       <div>
-    <Header />
-    <main>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/gamedetails" element={<GameDetails />} />
-        <Route path="/viewgames" element={<ViewGames/>} />
-      </Routes>
-    </main>
-  </div>
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/gamedetails" element={<GameDetails />} />
+            <Route path="/viewgames" element={<ViewGames />} />
+          </Routes>
+        </main>
+      </div>
     </div>
   )
 }
