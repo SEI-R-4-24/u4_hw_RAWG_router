@@ -15,4 +15,5 @@ const ViewGames = (props) => {
   )
 }
 
+
 export default ViewGames

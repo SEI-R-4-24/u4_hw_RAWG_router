@@ -8,6 +8,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  justify-content: center;
 }
 
 code {
@@ -23,7 +25,8 @@ a {
 header {
   background-color: #212121;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  text-align: center;
   align-items: center;
   height: 3em;
 }
@@ -90,6 +93,10 @@ button {
   background-color: #1b1b1b;
   cursor: pointer;
   transition: all 0.2s;
+  margin: 1vmin;
+  padding: 1vmin;
+  text-align: center;
+  justify-content: center;
 }
 
 .card:hover {
