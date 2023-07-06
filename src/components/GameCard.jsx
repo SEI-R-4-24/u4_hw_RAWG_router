@@ -11,7 +11,7 @@ const GameCard = ({game}) => {
       <div className="info-wrapper flex-col">
         <h3>{game.name}</h3>
       </div>
-      <Link to="/viewgames">
+      <Link to="/games">
         <button className='backButton'> Back </button>
       </Link>
     </div>
