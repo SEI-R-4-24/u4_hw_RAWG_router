@@ -8,13 +8,14 @@ import { BASE_URL, API_KEY } from '../globals'
 const Home = () => {
   const [genres, setGenres] = useState([])
   const [searchResults, setSearchResults] = useState([])
-  const [searched, toggleSearched] = useState(false)
+  const [searched, toggleSearched] = useState(true)
   const [searchQuery, setSearchQuery] = useState('')
 
   const getGenres = async () => {
     const response = await axios.get(
       `https://api.rawg.io/api/genres?key=${API_KEY}`
     )
+    console.log(response.data.results)
     setGenres(response.data.results)
   }
   useEffect(() => {
@@ -23,8 +24,11 @@ const Home = () => {
 
   const getSearchResults = async (e) => {
     e.preventDefault()
-    const response = await axios.get(`${BASE_URL}/games?search=${searchQuery}`)
-    setSearchResults(searchQuery.response.data.results)
+    const response = await axios.get(
+      `${BASE_URL}/api/games?key=${API_KEY}&search=${searchQuery}`
+    )
+    setSearchResults(response.data.results)
+    toggleSearched(true)
     console.log(response)
   }
 
@@ -44,20 +48,25 @@ const Home = () => {
         <section className="search-results container-grid">
           {searched &&
             searchResults.map((search) => (
-              <Link to={`/games/details/${search.id}`} key={search.id}>
-                )
-                <GameCard
-                  name={search.name}
-                  rating={search.rating}
-                  image={search.background_image}
-                />
-              </Link>
+              <GameCard
+                name={search.name}
+                rating={search.rating}
+                image={search.background_image}
+              />
             ))}
         </section>
       </div>
       <div className="genres">
         <h2>Genres</h2>
-        <section className="container-grid"></section>
+        <section className="container-grid">
+          {genres.map((genre) => (
+            <GenreCard
+              image={genre.image_background}
+              name={genre.name}
+              gamesCount={genre.gamesCount}
+            />
+          ))}
+        </section>
       </div>
     </div>
   )
