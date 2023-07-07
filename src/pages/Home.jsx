@@ -14,7 +14,7 @@ const Home = () => {
 
   useEffect(() => {
     const getGenres = async () => {
-      const response = await axios.get(`${BASE_URL}/genres?keys=${API_KEY}`)
+      const response = await axios.get(`${BASE_URL}/genres?key=${API_KEY}`)
       setGenres(response.data.results)
     }
     getGenres()
@@ -45,22 +45,30 @@ const Home = () => {
         <h2>Search Results</h2>
         <section className="search-results container-grid">
           {searched &&
-            searchResulrs.map((result) => {
-              ;<Link to={`/games/details/${result.id}`} key={result.id}></Link>
-            })}
+            searchResults.map((result) => (
+              <Link to={`/games/details/${result.id}`} key={result.id}>
+                <GameCard
+                  key={result.id}
+                  game={result}
+                  image={result.background_image}
+                  name={result.name}
+                  rating={result.rating}
+                />
+              </Link>
+            ))}
         </section>
       </div>
       <div className="genres">
         <h2>Genres</h2>
         <section className="container-grid">
-          {genres.map((genre) => {
-            ;<GenreCard
-              key={henre.id}
+          {genres.map((genre) => (
+            <GenreCard
+              key={genre.id}
               genre={genre}
               image={genre.image_background}
               name={genre.name}
             />
-          })}
+          ))}
         </section>
       </div>
     </div>

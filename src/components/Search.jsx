@@ -1,10 +1,6 @@
 const Search = (props) => {
-  const handleSubmit = (event) => {
-    props.onSubmit()
-  }
-
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={props.onSubmit}>
       <input
         type="text"
         name="search"
